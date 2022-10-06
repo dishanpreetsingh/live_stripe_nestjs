@@ -25,7 +25,8 @@ const document = SwaggerModule.createDocument(app, config);
 SwaggerModule.setup('api', app, document,{
   swaggerOptions: { defaultModelsExpandDepth: -1 },
 });
+let PORT = process.env.PORT || 3000;
 app.useGlobalPipes(new ValidationPipe());
-  await app.listen(3000);
+  await app.listen(PORT);
 }
 bootstrap();
