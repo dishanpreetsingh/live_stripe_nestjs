@@ -3,13 +3,11 @@ import { ConfigModule } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 import {PassportModule} from '@nestjs/passport';
 import { MongooseModule } from '@nestjs/mongoose';
-import { AppController } from './app.controller';
 import { StripeController } from './controller/stripe.controller';
 import { UserController } from './controller/user.controller';
 import { User, UserSchema } from './schema/user.schema';
 import { StripeService } from './stripe.service';
 import { UserService } from './user.service';
-import { AuthService } from './auth/auth.service';
 import { JwtStrategy } from './strategy/jwt.strategy';
 
 
@@ -29,7 +27,7 @@ import { JwtStrategy } from './strategy/jwt.strategy';
       }
   ])
   ],
-  controllers: [AppController,UserController,StripeController],
-  providers: [StripeService,UserService, AuthService, JwtStrategy],
+  controllers: [UserController,StripeController],
+  providers: [StripeService,UserService, JwtStrategy],
 })
 export class AppModule {}
